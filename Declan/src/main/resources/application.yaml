@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: Declan_works
+  # ----------------------------------------
+  # Datasource Configuration
+  # ----------------------------------------
+  datasource:
+    url: jdbc:postgresql://localhost:5432/your_database_name
+    username: your_database_username
+    password: your_database_password
+    driver-class-name: org.postgresql.Driver
+
+#    hikari:
+#      maximum-pool-size: 10
+#      minimum-idle: 5
+#      idle-timeout: 30000
+#      pool-name: SpringBootJPAHikariCP
+
+  # ----------------------------------------
+  # JPA / Hibernate Configuration
+  # ----------------------------------------
+  jpa:
+    # Automatically update the database schema based on your @Entity classes
+    # Options: create, create-drop, validate, update, none
+    # 'update' is good for dev, use 'validate' or 'none' for production
+    hibernate:
+      ddl-auto: create-drop
+
+    # Show the SQL queries executed by Hibernate in the console
+    show-sql: true
+
+    properties:
+      hibernate:
+        # Format the SQL queries in the console to make them readable
+        format_sql: true
+
+        # Specify the dialect so Hibernate knows how to speak to your specific DB
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+        # Optional: Order inserts and updates to improve batch performance
+        order_inserts: true
+        order_updates: true
+
+# ----------------------------------------
+# Server Configuration (Optional)
+# ----------------------------------------
+server:
+  port: 8080
+
+
